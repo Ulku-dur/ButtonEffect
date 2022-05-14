@@ -1,0 +1,50 @@
+body {
+  /* margin ve padding değerlerini sıfırlayarak butonun kenarlardaki açıklıkları kapatmasını bekleriz */
+  margin: 0;
+  padding: 0;
+  background-color: #b8b5dd;
+}
+.btn {
+  /* butonun gelmesi için width ve height değeri veririz */
+  width: 200px;
+  height: 60px;
+  background: #ffc107;
+  /* btn body classının içerisinde olduğu için toptan boşluk verebilmek için önce position absolute deriz, sonrasında değeri veririz */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* butonu tam ortalamak için */
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn:before {
+  color: white;
+  font-family: sans-serif;
+  content: "Hover Me";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* yazıyı ortaladı */
+  font-size: 20px;
+  transition: all 0.5s; /* yazıyı yavaşlattık */
+}
+.btn:hover::before {
+  top: -30px; /* yazının üzerine gelince 30px top oluyor */
+}
+.btn::after {
+  font-family: "Ionicons";
+  content: "\f141";
+  color: red;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* tam ortalamak için */
+  top: 140%; /* başlangıçta kalbin aşağıda kalmasını sağlar */
+  font-size: 40px; /* kalbin font size ını büyüttük */
+  transition: all 0.5s;
+}
+.btn:hover::after {
+  /* kalbe hover olayı verdik, aşağıdan yukarı çıkmasını sağladık */
+  top: 50%;
+}
